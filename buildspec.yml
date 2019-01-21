@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "install phase..."
+#      - apk --no-cache add build-base groff jq less make python py-pip nodejs zlib-dev
+      - apt-get update
+      - apt-get install -y jq python-pip nodejs
+      - pip install awscli
+  build:
+    commands:
+      - echo "build phase..."
+      - sh release.sh
